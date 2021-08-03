@@ -1,0 +1,22 @@
+.header{
+    background-color: brown;
+    width: 500px;
+    text-align: center;
+}
+.header h1{
+    color: wheat;
+}
+.input{
+    margin: 15px;
+    width: 250px;
+    border-radius: 15px;
+    text-decoration: unset;
+    padding: 8px;
+}
+.btn{
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    background-color: rgb(219, 175, 30);
+}

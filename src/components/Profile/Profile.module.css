@@ -1,0 +1,13 @@
+.profile_wrapper{
+    width: 300px;
+    background-color: rgb(219, 175, 30);
+    margin-left: 100px;
+    /* border-radius: 15px; */
+}
+.deal{
+    display: flex;
+    justify-content: space-around;
+}
+.deal input{
+    margin-top: 20px;
+}

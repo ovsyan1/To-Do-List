@@ -1,17 +1,32 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+// import React from 'react';
+// import ReactDOM from 'react-dom';
+// import './index.css';
+// import App from './App';
+// import reportWebVitals from './reportWebVitals';
+// import store from './components/redux/store';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// let rerenderEntireTree = (state) => {
+//   ReactDOM.render(
+//     <App state={state}/>,
+//   document.getElementById('root')
+// );
+// }
+
+// console.log(store.to_do_items);
+
+// rerenderEntireTree(store);
+// // store.subscribe(rerenderEntireTree);
+
+// reportWebVitals();
+
+
+
+import {rerenderEntireTree} from './render';
+import store from './components/redux/store';
+
+
+
+rerenderEntireTree(store);
+
+
