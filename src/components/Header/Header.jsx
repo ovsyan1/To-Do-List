@@ -8,13 +8,16 @@ const Header = (props) => {
     })
 
     let ref = React.createRef();
+    const SEND_MESSAGE = 'SEND-MESSAGE';
+    const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE_NEW_MESSAGE_TEXT';
 
     const addTxt = () => {
-        props.addTxt();
+        props.dispatch({type: SEND_MESSAGE});
     }
     const onMessageChange = (e) => {
         let text = e.target.value;
-        props.updateNewMessageText(text);
+        let action = {type: UPDATE_NEW_MESSAGE_TEXT, newText: text}
+        props.dispatch(action);
     }
 
     return (
