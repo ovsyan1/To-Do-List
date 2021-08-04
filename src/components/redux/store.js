@@ -10,49 +10,22 @@ const store = {
         {id: 3, message: 'QQQQ'},
     ],
     newMessageText: 'best-network',
-
-    // callSubscriber(){
-    //     console.log('state changed');
-    // },
-    // subscribe(observer){
-    // this.callSubscriber = observer;
-    // },
-    // addTxt(txt){
-    //     store.to_do_items.push({
-    //         id: 4,
-    //         message: txt
-    //     })  
-    // }
-    
-
 }
 
 
-export let addTxt = (txtMessage) => {
+export let addTxt = () => {
     let newMessage = {
         id: 4,
-        message: txtMessage
+        message: store.newMessageText
     };
     store.to_do_items.push(newMessage)
-    console.log(store.to_do_items);
     rerenderEntireTree(store)
+    store.newMessageText = '';
 }
 
-
-// export let callSubscriber = () => {
-//         console.log('state changed');
-// }
-
-// export let subscribe = (observer) => {
-//     callSubscriber = observer;
-// }
-
-// export let addTxt = (txtMessage) => {
-//     let newMessage = store.to_do_items.push({
-//         id: 4,
-//         message: txtMessage
-//     })
-//     store.to_do_items.push(newMessage)
-// }
+export let updateNewMessageText = (newText) => {
+    store.newMessageText = newText;
+    rerenderEntireTree(store)
+}
 
 export default store;

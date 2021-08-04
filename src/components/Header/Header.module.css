@@ -2,6 +2,7 @@
     background-color: brown;
     width: 500px;
     text-align: center;
+    border-radius: 15px;
 }
 .header h1{
     color: wheat;
