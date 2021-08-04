@@ -1,6 +1,8 @@
 import classes from './Header.module.css';
 import React from 'react';
 import Profile from '../Profile/Profile';
+import {addTxtActionCreator, updateNewTxtActionCreator} from '../redux/store';
+
 
 const Header = (props) => {
     let messages = props.store.to_do_items.map(message => {
@@ -8,15 +10,14 @@ const Header = (props) => {
     })
 
     let ref = React.createRef();
-    const SEND_MESSAGE = 'SEND-MESSAGE';
-    const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE_NEW_MESSAGE_TEXT';
+    
 
     const addTxt = () => {
-        props.dispatch({type: SEND_MESSAGE});
+        props.dispatch(addTxtActionCreator());
     }
     const onMessageChange = (e) => {
         let text = e.target.value;
-        let action = {type: UPDATE_NEW_MESSAGE_TEXT, newText: text}
+        let action = updateNewTxtActionCreator(text)
         props.dispatch(action);
     }
 

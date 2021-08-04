@@ -1,5 +1,6 @@
 const SEND_MESSAGE = 'SEND-MESSAGE';
 const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE_NEW_MESSAGE_TEXT';
+
 let newStore = {
     store: {
     to_do_items:[
@@ -37,13 +38,27 @@ let newStore = {
                 id: 4,
                 message: this.store.newMessageText
             };
-            this.store.to_do_items.push(newMessage)
-            this._callSubscriber(this.store)
+            if(this.store.newMessageText !== ''){
+               this.store.to_do_items.push(newMessage)
+                this._callSubscriber(this.store) 
+            }
             this.store.newMessageText = '';
         }else if(action.type === UPDATE_NEW_MESSAGE_TEXT){
             this.store.newMessageText = action.newText;
             this._callSubscriber(this.store)
         }
+    },
+}
+
+export const addTxtActionCreator = () => {
+    return {
+        type: SEND_MESSAGE
+    }
+}
+export const updateNewTxtActionCreator = (text) => {
+    return {
+        type: UPDATE_NEW_MESSAGE_TEXT,
+        newText: text
     }
 }
 
