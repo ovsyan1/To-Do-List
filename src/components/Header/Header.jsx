@@ -3,7 +3,6 @@ import React from 'react';
 import Profile from '../Profile/Profile';
 
 const Header = (props) => {
-
     let messages = props.store.to_do_items.map(message => {
         return <Profile message={message.message}/>
     })

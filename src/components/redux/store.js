@@ -1,6 +1,8 @@
-import { rerenderEntireTree } from "../../render";
+let rerenderEntireTree = () => {
+    console.log('State changed');
+}
 
-const SEND_MESSAGE = 'SEND-MESSAGE';
+// const SEND_MESSAGE = 'SEND-MESSAGE';
 
 
 const store = {
@@ -13,7 +15,7 @@ const store = {
 }
 
 
-export let addTxt = () => {
+export const addTxt = () => {
     let newMessage = {
         id: 4,
         message: store.newMessageText
@@ -23,9 +25,14 @@ export let addTxt = () => {
     store.newMessageText = '';
 }
 
-export let updateNewMessageText = (newText) => {
+export const updateNewMessageText = (newText) => {
     store.newMessageText = newText;
     rerenderEntireTree(store)
 }
 
+export const subscribe = (observer) => {
+    rerenderEntireTree = observer; //наблюдатель 
+}
+
 export default store;
+window.store = store;
